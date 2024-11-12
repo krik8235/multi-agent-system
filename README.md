@@ -192,6 +192,11 @@ Automate the contract review process through the following steps:
 
 Pre-commit hooks help maintain code quality by running checks for formatting, linting, and other issues before each commit.
 
+*To skip pre-commit hooks
+   ```
+   git commit --no-verify -m "your-commit-message"
+   ```
+
 ### Customizing AI Agents
 
 To modify or add new AI agents, edit the `clause_agents.py` file. Each agent is defined with a specific role, goal, and set of tools.
