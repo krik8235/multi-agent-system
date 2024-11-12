@@ -1,6 +1,6 @@
-from typing import Dict
 from crewai import Crew, Process
 from dotenv import load_dotenv
+
 from components.clause_agents import (
     additional_information_lawyer,
     corporate_lawyer_agent,
@@ -9,6 +9,7 @@ from components.clause_agents import (
     terms_and_termination_lawyer,
 )
 from components.clause_tasks import get_tasks
+
 load_dotenv(override=True)
 
 
@@ -23,7 +24,7 @@ def get_crew(input_doc):
         ],
         tasks=get_tasks(input_doc),
         process=Process.sequential,
-        verbose=True
+        verbose=True,
     )
     return crew
 

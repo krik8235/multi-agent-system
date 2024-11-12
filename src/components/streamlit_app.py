@@ -1,8 +1,10 @@
 import os
+
 import requests
 import streamlit as st
-from together import Together
 from dotenv import load_dotenv
+from together import Together
+
 load_dotenv(override=True)
 TOGETHER_API_KEY = os.getenv("TOGETHER_API_KEY")
 client = Together(api_key=TOGETHER_API_KEY)
@@ -10,16 +12,16 @@ client = Together(api_key=TOGETHER_API_KEY)
 
 def call_llama_for_response(clauses_data):
     prompt = "As an AI assistant specializing in contract analysis, draft a professional and courteous response to a contract drafter based on the following clause analyses and decisions:\n\n"
-    
+
     for clause in clauses_data:
         prompt += f"Clause: {clause['agent']}\n"
         prompt += f"Analysis: {clause['analysis']}\n"
         prompt += f"Recommendation: {clause['recommendation']}\n"
         prompt += f"Decision: {clause['action']}\n"
-        if clause['action'] == 'Negotiate':
+        if clause["action"] == "Negotiate":
             prompt += f"Negotiation points: {clause['negotiation_points']}\n"
         prompt += "\n"
-    
+
     prompt += "Draft a response that addresses each clause, explaining our position on acceptance, rejection, or negotiation. The tone should be professional, courteous, and constructive."
 
     response = client.chat.completions.create(
@@ -31,16 +33,17 @@ def call_llama_for_response(clauses_data):
         top_k=50,
         repetition_penalty=1,
         stop=["<|eot_id|>", "<|eom_id|>"],
-        stream=False
+        stream=False,
     )
     return response.choices[0].message.content
+
 
 st.title("Contract Negotiation Assistant")
 
 # Use session state to store the uploaded file and analysis results
-if 'uploaded_file' not in st.session_state:
+if "uploaded_file" not in st.session_state:
     st.session_state.uploaded_file = None
-if 'analysis_results' not in st.session_state:
+if "analysis_results" not in st.session_state:
     st.session_state.analysis_results = None
 
 # File uploader
@@ -70,7 +73,9 @@ if st.session_state.uploaded_file is not None:
         crew_analysis = data.get("crew_analysis", {})
 
         # Extract the tasks_output from the nested structure
-        tasks_output = crew_analysis.get("final_recommendation", {}).get("tasks_output", [])
+        tasks_output = crew_analysis.get("final_recommendation", {}).get(
+            "tasks_output", []
+        )
 
         clauses_data = []
         for task in tasks_output:
@@ -78,7 +83,7 @@ if st.session_state.uploaded_file is not None:
             if task.get("pydantic"):
                 clause_analysis = task["pydantic"].get("analysis", "")
                 recommendation = task["pydantic"].get("recommendation", "")
-                
+
                 st.subheader(f"Clause: {agent}")
                 st.write("Analysis:")
                 st.write(clause_analysis)
@@ -88,20 +93,24 @@ if st.session_state.uploaded_file is not None:
                 action = st.selectbox(
                     f"Action for {agent}",
                     ["Accept", "Negotiate", "Reject"],
-                    key=f"action_{agent}"
+                    key=f"action_{agent}",
                 )
                 negotiation_points = ""
                 if action == "Negotiate":
-                    negotiation_points = st.text_area("Enter your negotiation points:", key=f"negotiate_{agent}")
-                
-                clauses_data.append({
-                    "agent": agent,
-                    "analysis": clause_analysis,
-                    "recommendation": recommendation,
-                    "action": action,
-                    "negotiation_points": negotiation_points
-                })
-                
+                    negotiation_points = st.text_area(
+                        "Enter your negotiation points:", key=f"negotiate_{agent}"
+                    )
+
+                clauses_data.append(
+                    {
+                        "agent": agent,
+                        "analysis": clause_analysis,
+                        "recommendation": recommendation,
+                        "action": action,
+                        "negotiation_points": negotiation_points,
+                    }
+                )
+
                 st.markdown("---")  # Add a separator between clauses
 
         # Finalize Contract button

@@ -1,8 +1,11 @@
 import os
+
 from crewai import Agent
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
+
 from components.tools import rag_query_tools, rag_tools
+
 load_dotenv(override=True)
 
 # AI ML API - https://aimlapi.com/app/
@@ -20,7 +23,7 @@ llm = ChatOpenAI(
     openai_api_key=AI_API_KEY_LITELLM,
     openai_api_base=AI_API_BASE_LITELLM,
     model_name=AI_MODEL_NAME_LITELLM,
-    temperature=0.1
+    temperature=0.1,
 )
 # llm = LLM(
 #     model=OPENAI_MODEL_NAME,

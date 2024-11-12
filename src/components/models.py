@@ -1,15 +1,17 @@
 from typing import Dict
-from pydantic import BaseModel, Field, ValidationError
-from pydantic.dataclasses import dataclass
+
+from pydantic import BaseModel, Field
 
 
 class AgentOutput(BaseModel):
     """Output of each clause agent"""
 
-    analysis: str = Field(description="An analysis of the section in laymen terms", max_length=256)
+    analysis: str = Field(
+        description="An analysis of the section in laymen terms", max_length=256
+    )
     recommendation: str = Field(
         description="How the current clause deviates from the benchmark documents",
-        max_length=256
+        max_length=256,
     )
 
 

@@ -1,16 +1,19 @@
 import json
 import os
 import re
+
 import regex
 import requests
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from together import Together
 from werkzeug.utils import secure_filename
+
 from components.crew import get_agent_output
+
 load_dotenv(override=True)
 UPLOAD_FOLDER = "uploads"
-ALLOWED_EXTENSIONS = { "pdf", "docx" }
+ALLOWED_EXTENSIONS = {"pdf", "docx"}
 TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY")
 client = Together(api_key=TOGETHER_API_KEY)
 app = Flask(__name__)
@@ -214,8 +217,7 @@ def segment_clauses(text):
 
 
 def analyze_clause(clause):
-    return 
-
+    return
 
 
 def generate_recommendation(clause, analysis):
@@ -309,7 +311,6 @@ def recommend():
     return jsonify({"recommendations": recommendations})
 
 
-if __name__ == "__main__": 
+if __name__ == "__main__":
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
     app.run(host="0.0.0.0", debug=True, port=5002)
-   

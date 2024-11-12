@@ -8,23 +8,30 @@ A contract negotiation system that leverages various AI technologies to analyze,
 
 
 ## Table of Contents
+*generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
 - [Overview](#overview)
-- [Key Features](#key-features)
-- [Technologies Used](#technologies-used)
-- [Project Structure](#project-structure)
-- [Setup](#setup)
-- [Usage](#usage)
-- [Development](#development)
-- [Contributing](#contributing)
-- [License](#license)
-- [Troubleshooting](#troubleshooting)
-- [Future Improvements](#future-improvements)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview-1)
+  - [Key Features](#key-features)
+  - [Technologies Used](#technologies-used)
+  - [Project Structure](#project-structure)
+  - [Setup](#setup)
+  - [Usage](#usage)
+  - [Mindmap](#mindmap)
+  - [Development](#development)
+    - [Package Management with uv](#package-management-with-uv)
+    - [Pre-commit Hooks](#pre-commit-hooks)
+    - [Customizing AI Agents](#customizing-ai-agents)
+    - [Modifying RAG Functionality](#modifying-rag-functionality)
+  - [Troubleshooting](#troubleshooting)
+
 
 ## Overview
 
 Automate the contract review process through the following steps:
 
-1. **Document Parsing**: 
+1. **Document Parsing**:
    - Uploads a contract document (PDF or DOCX) to the system.
    - Uses Upstage's document parser API to convert the contract into plain text.
 
@@ -68,10 +75,10 @@ Automate the contract review process through the following steps:
 
    - OpenAI GPT-4: Advanced language model for clause analysis and recommendations
    - Together AI: Hosting Llama 3.1 for text processing, clause segmentation, and response generation
-   - AIML API: Curation platform to access AI models and other tasks 
+   - AIML API: Curation platform to access AI models and other tasks
    - LiteLLM: Curation platform to choose lite LLMs as per objectives [Doc: Model Providers](https://docs.litellm.ai/docs/providers)
 
- 
+
 [task-handling]
 
    - Crew AI: An open-source Python framework designed to support developing and managing multi-agent AI systems

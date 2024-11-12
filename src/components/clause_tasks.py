@@ -1,5 +1,6 @@
 from crewai import Task
 from dotenv import load_dotenv
+
 from components.clause_agents import (
     additional_information_lawyer,
     corporate_lawyer_agent,
@@ -9,6 +10,7 @@ from components.clause_agents import (
     terms_and_termination_lawyer,
 )
 from components.models import AgentOutput
+
 load_dotenv(override=True)
 EXPECTED_TASK_OUTPUT = """
 A JSON that has two keys: an `analysis` of the current clause in laymen terms as a paragraph as well as a `recommendation` of how the current clause deviates from the benchmark clauses (in short, numbered points)."""
