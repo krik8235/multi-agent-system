@@ -61,15 +61,12 @@ if st.session_state.uploaded_file is not None:
     if st.session_state.analysis_results is None:
         files = {"file": st.session_state.uploaded_file}
         s = Session()
-        req = Request('POST', url="http://localhost:5002/upload", files=files)
-        res = s.send(prepped,
-            stream=stream,
-            verify=verify,
-            proxies=proxies,
-            cert=cert,
-            timeout=2000
+        req = Request("POST", url="http://localhost:5002/upload", files=files)
+        res = s.send(
+            request=req,
+            timeout=2000,
         )
-        # response = requests.post(" 
+        # response = requests.post("
 
         if res.status_code == 200:
             st.write("Contract uploaded successfully. Analyzing...")
