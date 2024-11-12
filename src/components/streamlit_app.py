@@ -1,6 +1,6 @@
 import os
-
 import requests
+from requests import Session, Request
 import streamlit as st
 from dotenv import load_dotenv
 from together import Together
@@ -57,12 +57,23 @@ if uploaded_file is not None and uploaded_file != st.session_state.uploaded_file
 # If we have an uploaded file, process it
 if st.session_state.uploaded_file is not None:
     # Only call the API if we don't have analysis results yet
+
     if st.session_state.analysis_results is None:
         files = {"file": st.session_state.uploaded_file}
-        response = requests.post("http://localhost:5002/upload", files=files)
-        if response.status_code == 200:
+        s = Session()
+        req = Request('POST', url="http://localhost:5002/upload", files=files)
+        res = s.send(prepped,
+            stream=stream,
+            verify=verify,
+            proxies=proxies,
+            cert=cert,
+            timeout=2000
+        )
+        # response = requests.post(" 
+
+        if res.status_code == 200:
             st.write("Contract uploaded successfully. Analyzing...")
-            st.session_state.analysis_results = response.json()
+            st.session_state.analysis_results = res.json()
         else:
             st.error("Failed to analyze the contract. Please try again.")
 
