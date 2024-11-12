@@ -2,8 +2,13 @@
 
 A contract negotiation system that leverages various AI technologies to analyze, assist, and streamline the contract negotiation process.
 
+![UI](https://res.cloudinary.com/dfeirxlea/image/upload/v1731425753/portfolio/fsqjubnndrawnp9ezimq.png)
+
+![Terminal](https://res.cloudinary.com/dfeirxlea/image/upload/v1731425419/portfolio/mytqa9jtu8yexf6oc0k8.png)
+
+
 ## Table of Contents
-- [What It Does](#what-it-does)
+- [Overview](#overview)
 - [Key Features](#key-features)
 - [Technologies Used](#technologies-used)
 - [Project Structure](#project-structure)
@@ -15,7 +20,7 @@ A contract negotiation system that leverages various AI technologies to analyze,
 - [Troubleshooting](#troubleshooting)
 - [Future Improvements](#future-improvements)
 
-## What It Does
+## Overview
 
 Automate the contract review process through the following steps:
 
@@ -52,12 +57,21 @@ Automate the contract review process through the following steps:
 - Automated generation of response drafts for contract amendments using Llama 3.1
 
 ## Technologies Used
-[doc-data]
+[data-doc-management]
 
    - Upstage: Converts natural language queries into SQL. In this project use Document Parser API to convert contracts to text format [Doc](https://console.upstage.ai/docs/getting-started/overview)
    - Chroma DB: Vector database for storing and querying standard contract clauses
    - SQLite: Database for storing application data
 
+
+[ai-model-curation]
+
+   - OpenAI GPT-4: Advanced language model for clause analysis and recommendations
+   - Together AI: Hosting Llama 3.1 for text processing, clause segmentation, and response generation
+   - AIML API: Curation platform to access AI models and other tasks 
+   - LiteLLM: Curation platform to choose lite LLMs as per objectives [Doc: Model Providers](https://docs.litellm.ai/docs/providers)
+
+ 
 [task-handling]
 
    - Crew AI: An open-source Python framework designed to support developing and managing multi-agent AI systems
@@ -69,14 +83,6 @@ Automate the contract review process through the following steps:
       - [Composio Tool for Crew AI](https://docs.crewai.com/tools/composiotool)
 
 
-[ai-model-curation]
-
-   - OpenAI GPT-4: Advanced language model for clause analysis and recommendations
-   - Together AI: Hosting Llama 3.1 for text processing, clause segmentation, and response generation
-   - AIML API: Curation platform to access AI models and other tasks 
-   - LiteLLM: Curation platform to choose lite LLMs as per objectives [Doc: Model Providers](https://docs.litellm.ai/docs/providers)
-
-
 [deployment-framework]
 
    - Python: Primary programming language
@@ -86,9 +92,6 @@ Automate the contract review process through the following steps:
    - pre-commit: Managing and maintaining pre-commit hooks
 
 
-
-## Models
-- [LiteLLM](https://docs.litellm.ai/docs/providers)
 
 ## Project Structure
 
