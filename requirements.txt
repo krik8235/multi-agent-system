@@ -1,0 +1,17 @@
+regex
+requests
+python-dotenv
+pydantic
+werkzeug
+typing
+
+flask
+together
+streamlit
+
+crewai
+openai
+composio_core
+composio_crewai
+composio_openai
+langchain_openai
