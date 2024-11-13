@@ -1,6 +1,6 @@
 # Overview
 
-A contract negotiation system that leverages various AI technologies to analyze, assist, and streamline the contract negotiation process.
+An open-source contract negotiation system that leverages various AI technologies to analyze, assist, and streamline the contract negotiation process.
 
 [Website](https://contract-neg-system.streamlit.app/)
 
@@ -26,6 +26,7 @@ A contract negotiation system that leverages various AI technologies to analyze,
     - [Pre-commit Hooks](#pre-commit-hooks)
     - [Customizing AI Agents](#customizing-ai-agents)
     - [Modifying RAG Functionality](#modifying-rag-functionality)
+  - [Contributing](#contributing)
   - [Troubleshooting](#troubleshooting)
 
 
@@ -99,6 +100,7 @@ Automate the contract review process through the following steps:
    - Streamlit: Frontend user interface
    - uv: Fast Python package installer and resolver
    - pre-commit: Managing and maintaining pre-commit hooks
+   - Hatch/Hatchling
 
 
 
@@ -157,7 +159,7 @@ Automate the contract review process through the following steps:
    ```
    uv run streamlit run src/components/streamlit_app.py
    ```
-   Access the frontend at `http://localhost:8503` in your web browser.
+   Access the frontend at `http://localhost:8501` in your web browser.
 
 3. Upload a contract document through the Streamlit interface.
 
@@ -210,6 +212,17 @@ The RAG system uses Chroma DB to store and query contract clauses. To update the
 1. Add new contract documents to the `uploads/` directory.
 2. Modify the `tools.py` file to update the ingestion process if necessary.
 3. Run the ingestion process to update the Chroma DB.
+
+
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/your-amazing-feature`)
+3. Commit your changes (`git commit -m 'Add your-amazing-feature'`)
+4. Push to the branch (`git push origin feature/your-amazing-feature`)
+5. Open a pull request
+
 
 
 ## Troubleshooting

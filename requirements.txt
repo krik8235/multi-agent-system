@@ -8,6 +8,7 @@ typing
 flask
 together
 streamlit
+waitress
 
 crewai
 openai
@@ -15,3 +16,4 @@ composio_core
 composio_crewai
 composio_openai
 langchain_openai
+

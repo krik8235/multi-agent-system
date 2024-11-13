@@ -1,9 +1,7 @@
 import os
-
 from crewai import Agent
 from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
-
 from components.tools import rag_query_tools, rag_tools
 
 load_dotenv(override=True)

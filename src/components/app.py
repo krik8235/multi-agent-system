@@ -1,19 +1,15 @@
 import json
 import os
 import re
-
 import regex
 import requests
 from dotenv import load_dotenv
 from flask import Flask, jsonify, request
 from together import Together
 from werkzeug.utils import secure_filename
-
 from components.crew import get_agent_output
-
 load_dotenv(override=True)
-UPLOAD_FOLDER = "uploads"
-ALLOWED_EXTENSIONS = {"pdf", "docx"}
+UPLOAD_FOLDER, ALLOWED_EXTENSIONS= "uploads", {"pdf", "docx"}
 TOGETHER_API_KEY = os.environ.get("TOGETHER_API_KEY")
 client = Together(api_key=TOGETHER_API_KEY)
 app = Flask(__name__)
@@ -312,5 +308,7 @@ def recommend():
 
 
 if __name__ == "__main__":
+    from waitress import serve
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-    app.run(host="0.0.0.0", debug=True, port=5002)
+    serve(app, host="0.0.0.0", port=5002)
+    # app.run(host="0.0.0.0", debug=True, port=5002)

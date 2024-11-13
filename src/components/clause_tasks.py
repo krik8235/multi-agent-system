@@ -1,6 +1,5 @@
 from crewai import Task
 from dotenv import load_dotenv
-
 from components.clause_agents import (
     additional_information_lawyer,
     corporate_lawyer_agent,
