@@ -10,8 +10,7 @@ An open-source contract negotiation system that leverages various AI technologie
 
 
 ## Table of Contents
-*generated with [DocToc](https://github.com/thlorenz/doctoc)*
-
+<!-- START doctoc -->
 - [Overview](#overview)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview-1)
@@ -28,6 +27,8 @@ An open-source contract negotiation system that leverages various AI technologie
     - [Modifying RAG Functionality](#modifying-rag-functionality)
   - [Contributing](#contributing)
   - [Troubleshooting](#troubleshooting)
+
+<!-- END doctoc -->
 
 
 ## Overview
