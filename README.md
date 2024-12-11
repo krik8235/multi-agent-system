@@ -1,6 +1,6 @@
 # Overview
 
-An open-source contract negotiation system that leverages various AI technologies to analyze, assist, and streamline the contract negotiation process.
+A multi-agent system that leverages various AI technologies to analyze, assist, and streamline the contract negotiation process.
 
 [Website](https://contract-neg-system.streamlit.app/)
 
